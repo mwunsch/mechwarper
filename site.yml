@@ -1,0 +1,6 @@
+---
+- hosts: all
+  remote_user: mw
+  tasks:
+    - name: test
+      command: echo hello

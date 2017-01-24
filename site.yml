@@ -1,6 +1,6 @@
 ---
 - hosts: all
-  remote_user: mw
+  remote_user: freebsd
   tasks:
-    - name: test
-      command: echo hello
+    - name: install python
+      raw: env ASSUME_ALWAYS_YES=YES pkg install python

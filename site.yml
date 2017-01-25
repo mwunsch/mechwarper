@@ -6,3 +6,12 @@
   tasks:
     - name: install python
       raw: env ASSUME_ALWAYS_YES=YES pkg install python
+
+- hosts: all
+  remote_user: freebsd
+  become: true
+  tasks:
+    - name: install bash
+      pkgng: name=bash state=present
+    - name: install git
+      pkgng: name=git state=present

@@ -6,6 +6,8 @@
   tasks:
     - name: install python
       raw: env ASSUME_ALWAYS_YES=YES pkg install python
+      register: py_install
+      changed_when: py_install.stdout_lines | last != "The most recent version of packages are already installed"
 
 - hosts: all
   remote_user: freebsd

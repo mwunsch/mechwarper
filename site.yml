@@ -13,5 +13,8 @@
   tasks:
     - name: install bash
       pkgng: name=bash state=present
+    - name: mount fdesc
+      # we ensure fdescfs(5) is mounted for bash process substitution
+      mount: src=fdesc name=/dev/fd fstype=fdescfs opts=rw state=mounted
     - name: install git
       pkgng: name=git state=present

@@ -20,3 +20,7 @@
       mount: src=fdesc name=/dev/fd fstype=fdescfs opts=rw state=mounted
     - name: install git
       pkgng: name=git state=present
+    - name: install stow
+      pkgng: name=stow state=present
+    - name: add mw user
+      user: name=mw groups=wheel shell=/usr/local/bin/bash append=yes

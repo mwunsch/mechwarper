@@ -26,5 +26,11 @@
       pkgng: name=git state=present
     - name: install stow
       pkgng: name=stow state=present
+    - name: install hub
+      pkgng: name=hub state=present
+    - name: install rbenv
+      pkgng: name=rbenv state=present
+    - name: install emacs
+      pkgng: name=emacs-nox11 state=present
     - name: add mw user
       user: name=mw groups=wheel shell=/usr/local/bin/bash append=yes

@@ -4,10 +4,14 @@
   gather_facts: no
   become: true
   tasks:
+    - name: python exists
+      raw: pkg info -e python
+      register: result
+      changed_when: result | failed
+      failed_when: false
     - name: install python
       raw: env ASSUME_ALWAYS_YES=YES pkg install python
-      register: py_install
-      changed_when: py_install.stdout_lines | last != "The most recent version of packages are already installed"
+      when: result | failed
 
 - hosts: all
   remote_user: freebsd

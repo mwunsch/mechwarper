@@ -4,14 +4,10 @@
   gather_facts: no
   become: true
   tasks:
-    - name: python exists
-      raw: pkg info -e python
-      register: result
-      changed_when: result | failed
-      failed_when: false
     - name: install python
-      raw: env ASSUME_ALWAYS_YES=YES pkg install python
-      when: result | failed
+      raw: pkg info -e python || env ASSUME_ALWAYS_YES=YES pkg install python
+      register: result
+      changed_when: result.stdout != ""
 
 - hosts: all
   remote_user: freebsd

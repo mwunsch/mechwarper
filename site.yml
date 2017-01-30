@@ -74,3 +74,12 @@
       command: /usr/local/bin/stow home chdir=~/dotfiles creates=~/.bash_profile
     - name: get emacs.d
       git: repo=git@github.com:mwunsch/emacs.d.git dest=~/.emacs.d accept_hostkey=yes
+    - name: install ruby-build
+      git: repo=https://github.com/rbenv/ruby-build.git dest=~/.rbenv/plugins/ruby-build
+    - name: install ruby 2.3.3
+      # make a cup of coffee
+      shell: rbenv install 2.3.3 creates=~/.rbenv/versions/2.3.3
+    - name: set ruby 2.3.3 as global ruby
+      lineinfile:
+        name: ~/.rbenv/version
+        line: '2.3.3'

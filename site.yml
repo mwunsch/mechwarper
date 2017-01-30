@@ -46,6 +46,14 @@
       pkgng: name=rbenv state=present
     - name: install emacs
       pkgng: name=emacs-nox11 state=present
+    - name: copy git prompt into place
+      command: /bin/cp /usr/local/share/git-core/contrib/completion/git-prompt.sh /usr/local/etc/bash_completion.d/
+      args:
+        creates: /usr/local/etc/bash_completion.d/git-prompt.sh
+    - name: copy git completions into place
+      command: /bin/cp /usr/local/share/git-core/contrib/completion/git-completion.bash /usr/local/etc/bash_completion.d/
+      args:
+        creates: /usr/local/etc/bash_completion.d/git-completion.bash
     - name: add mw user
       user: name=mw groups=wheel shell=/usr/local/bin/bash append=yes
   handlers:

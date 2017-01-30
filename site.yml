@@ -44,6 +44,8 @@
       pkgng: name=hub state=present
     - name: install rbenv
       pkgng: name=rbenv state=present
+    - name: install screen
+      pkgng: name=screen state=present
     - name: install emacs
       pkgng: name=emacs-nox11 state=present
     - name: copy git prompt into place

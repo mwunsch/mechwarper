@@ -58,6 +58,19 @@
         creates: /usr/local/etc/bash_completion.d/git-completion.bash
     - name: add mw user
       user: name=mw groups=wheel shell=/usr/local/bin/bash append=yes
+    - name: add authorized keys from github
+      authorized_key: user=mw key=https://github.com/mwunsch.keys
   handlers:
     - name: restart ntpd
       service: name=ntpd state=restarted
+
+- hosts: all
+  remote_user: mw
+  tasks:
+    - name: get dotfiles
+      # Make sure you're using agent forwarding!
+      git: repo=git@github.com:mwunsch/dotfiles.git dest=~/dotfiles accept_hostkey=yes
+    - name: unpack dotfiles
+      command: /usr/local/bin/stow home chdir=~/dotfiles creates=~/.bash_profile
+    - name: get emacs.d
+      git: repo=git@github.com:mwunsch/emacs.d.git dest=~/.emacs.d accept_hostkey=yes

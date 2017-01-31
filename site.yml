@@ -83,3 +83,4 @@
       lineinfile:
         name: ~/.rbenv/version
         line: '2.3.3'
+        create: yes

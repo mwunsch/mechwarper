@@ -1,0 +1,27 @@
+---
+- name: install git
+  pkgng: name=git state=present
+- name: copy git prompt into place
+  command: /bin/cp /usr/local/share/git-core/contrib/completion/git-prompt.sh /usr/local/etc/bash_completion.d/
+  args:
+    creates: /usr/local/etc/bash_completion.d/git-prompt.sh
+- name: copy git completions into place
+  command: /bin/cp /usr/local/share/git-core/contrib/completion/git-completion.bash /usr/local/etc/bash_completion.d/
+  args:
+    creates: /usr/local/etc/bash_completion.d/git-completion.bash
+- name: install stow
+  pkgng: name=stow state=present
+- name: install hub
+  pkgng: name=hub state=present
+- name: install tmux
+  pkgng: name=tmux state=present
+- name: install emacs
+  pkgng: name=emacs-nox11 state=present
+- name: install wget
+  pkgng: name=wget state=present
+- name: install OpenJDK 8
+  pkgng: name=openjdk8 state=present
+- name: install leiningen
+  pkgng: name=leiningen state=present
+- name: install rbenv
+  pkgng: name=rbenv state=present

@@ -1,0 +1,5 @@
+---
+- name: add mw user
+  user: name=mw groups=wheel shell=/usr/local/bin/bash append=yes
+- name: add authorized keys from github
+  authorized_key: user=mw key=https://github.com/mwunsch.keys

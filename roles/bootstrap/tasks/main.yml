@@ -1,0 +1,24 @@
+---
+- name: install bash
+  pkgng: name=bash state=present
+- name: mount fdesc
+  # we ensure fdescfs(5) is mounted for bash process substitution
+  mount: src=fdesc name=/dev/fd fstype=fdescfs opts=rw state=mounted
+- name: set timezone
+  # Ansible 2.3 supports BSD with the timezone module
+  command: /usr/sbin/tzsetup -s America/New_York creates=/etc/localtime
+# setting up ntpd. alternative is to use sysrc command
+- name: enable ntpd
+  lineinfile:
+    name: /etc/rc.conf
+    line: 'ntpd_enabled="YES"'
+    regexp: '^ntpd_enabled='
+  notify:
+    - restart ntpd
+- name: sync ntpd on start
+  lineinfile:
+    name: /etc/rc.conf
+    line: 'ntpd_sync_on_start="YES"'
+    regexp: '^ntpd_sync_on_start='
+- name: ntpd running
+  service: name=ntpd state=started enabled=yes

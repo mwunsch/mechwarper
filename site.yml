@@ -42,10 +42,8 @@
       pkgng: name=stow state=present
     - name: install hub
       pkgng: name=hub state=present
-    - name: install rbenv
-      pkgng: name=rbenv state=present
-    - name: install screen
-      pkgng: name=screen state=present
+    - name: install tmux
+      pkgng: name=tmux state=present
     - name: install emacs
       pkgng: name=emacs-nox11 state=present
     - name: install wget
@@ -66,6 +64,8 @@
       pkgng: name=openjdk8 state=present
     - name: install leiningen
       pkgng: name=leiningen state=present
+    - name: install rbenv
+      pkgng: name=rbenv state=present
   handlers:
     - name: restart ntpd
       service: name=ntpd state=restarted

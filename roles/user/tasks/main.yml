@@ -3,3 +3,5 @@
   user: name=mw groups=wheel shell=/usr/local/bin/bash append=yes
 - name: add authorized keys from github
   authorized_key: user=mw key=https://github.com/mwunsch.keys
+- name: setup xterm-clear termcap
+  copy: src=termcap dest=/home/mw/.termcap owner=mw group=mw

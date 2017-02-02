@@ -1,5 +1,5 @@
 ---
-- hosts: all
+- hosts: freebsd
   remote_user: freebsd
   gather_facts: no
   become: true
@@ -9,7 +9,7 @@
       register: result
       changed_when: result.stdout != ""
 
-- hosts: all
+- hosts: freebsd
   remote_user: freebsd
   become: true
   tasks:
@@ -70,7 +70,7 @@
     - name: restart ntpd
       service: name=ntpd state=restarted
 
-- hosts: all
+- hosts: freebsd
   remote_user: mw
   tasks:
     - name: get dotfiles

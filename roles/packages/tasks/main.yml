@@ -25,3 +25,5 @@
   pkgng: name=leiningen state=present
 - name: install rbenv
   pkgng: name=rbenv state=present
+- name: install racket
+  pkgng: name=racket-minimal state=present

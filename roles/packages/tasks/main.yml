@@ -27,3 +27,7 @@
   pkgng: name=rbenv state=present
 - name: install racket
   pkgng: name=racket-minimal state=present
+- name: install node
+  pkgng: name=node state=present
+- name: install npm
+  pkgng: name=npm state=present

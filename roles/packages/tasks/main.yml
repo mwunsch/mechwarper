@@ -17,6 +17,8 @@
   pkgng: name=tmux state=present
 - name: install emacs
   pkgng: name=emacs-nox11 state=present
+- name: install aspell
+  pkgng: name=aspell state=present
 - name: install wget
   pkgng: name=wget state=present
 - name: install OpenJDK 8

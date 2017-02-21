@@ -23,6 +23,8 @@
   pkgng: name=en-aspell state=present
 - name: install wget
   pkgng: name=wget state=present
+- name: install pkgconf
+  pkgng: name=pkgconf state=present
 - name: install OpenJDK 8
   pkgng: name=openjdk8 state=present
 - name: install leiningen

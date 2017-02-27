@@ -9,31 +9,24 @@
   command: /bin/cp /usr/local/share/git-core/contrib/completion/git-completion.bash /usr/local/etc/bash_completion.d/
   args:
     creates: /usr/local/etc/bash_completion.d/git-completion.bash
-- name: install stow
-  pkgng: name=stow state=present
-- name: install hub
-  pkgng: name=hub state=present
-- name: install tmux
-  pkgng: name=tmux state=present
-- name: install emacs
-  pkgng: name=emacs-nox11 state=present
-- name: install aspell
-  pkgng: name=aspell state=present
-- name: install aspell english dictionary
-  pkgng: name=en-aspell state=present
-- name: install wget
-  pkgng: name=wget state=present
-- name: install pkgconf
-  pkgng: name=pkgconf state=present
-- name: install OpenJDK 8
-  pkgng: name=openjdk8 state=present
-- name: install leiningen
-  pkgng: name=leiningen state=present
-- name: install rbenv
-  pkgng: name=rbenv state=present
-- name: install racket
-  pkgng: name=racket-minimal state=present
-- name: install node
-  pkgng: name=node state=present
-- name: install npm
-  pkgng: name=npm state=present
+- name: install utilities
+  pkgng: name={{ item }} state=present
+  with_items:
+    - stow
+    - tree
+    - hub
+    - tmux
+    - emacs-nox11
+    - aspell
+    - en-aspell
+    - wget
+    - pkgconf
+- name: install language tooling
+  pkgng: name={{ item }} state=present
+  with_items:
+    - openjdk8
+    - leiningen
+    - rbenv
+    - racket-minimal
+    - node
+    - npm

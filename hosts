@@ -1,2 +1,5 @@
 [freebsd]
 wunsch.systems ansible_python_interpreter=/usr/local/bin/python
+
+[macos]
+localhost ansible_connection=local

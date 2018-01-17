@@ -1,5 +1,4 @@
 ---
 - hosts: localhost ansible_connection=local
-  tasks:
-    - name: SETEC ASTRONOMY
-      homebrew: name=no-more-secrets state=present
+  roles:
+    - brews

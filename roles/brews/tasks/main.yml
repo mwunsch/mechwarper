@@ -1,0 +1,7 @@
+---
+- name: GNU Stow installation
+  homebrew: name=stow state=present
+- name: GNU Aspell installation
+  homebrew: name=aspell state=present
+- name: SETEC ASTRONOMY
+  homebrew: name=no-more-secrets state=present

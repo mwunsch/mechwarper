@@ -1,6 +1,4 @@
 ---
-- name: Homebrew-Cask
-  homebrew_tap: caskroom/cask state=present
 - name: VirtualBox installation
   homebrew_cask: name=virtualbox state=present
 - name: Vagrant installation

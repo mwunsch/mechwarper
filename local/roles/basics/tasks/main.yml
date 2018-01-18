@@ -1,0 +1,9 @@
+---
+- name: Homebrew installation
+  shell: /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  args:
+    creates: /usr/local/Cellar
+- name: Homebrew-Cask tap
+  homebrew_tap: name=caskroom/cask state=present
+- name: Git installation
+  homebrew: name=git state=present

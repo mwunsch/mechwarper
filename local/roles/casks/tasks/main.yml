@@ -3,5 +3,7 @@
   homebrew_cask: name=virtualbox state=present
 - name: Vagrant installation
   homebrew_cask: name=vagrant state=present
+- name: MacTeX installation
+  homebrew_cask: name=mactex state=present
 - name: Racket installation
   homebrew_cask: name=racket state=present

@@ -1,0 +1,7 @@
+---
+- name: set global ruby
+  lineinfile:
+    name: ~/.rbenv/version
+    line: "{{ ruby_version }}"
+    state: present
+    create: yes

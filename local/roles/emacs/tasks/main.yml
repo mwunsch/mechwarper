@@ -5,3 +5,7 @@
   homebrew_cask: name=emacs-mac state=present
 - name: emacs.d setup
   git: repo=git@github.com:mwunsch/emacs.d.git dest=~/.emacs.d accept_hostkey=yes
+- name: GNU Aspell installation
+  homebrew: name=aspell state=present
+- name: Ghostscript installation
+  homebrew: name=ghostscript state=present

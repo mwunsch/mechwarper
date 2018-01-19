@@ -7,3 +7,5 @@
   homebrew_tap: name=caskroom/cask state=present
 - name: Git installation
   homebrew: name=git state=present
+- name: GNU Stow installation
+  homebrew: name=stow state=present

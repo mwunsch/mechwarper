@@ -1,0 +1,22 @@
+---
+- name: GStreamer installation
+  homebrew: name=gstreamer state=present
+- name: gst-plugins-base installation
+  homebrew:
+    name: gst-plugins-base
+    state: present
+    install_options: with-pango
+- name: gst-plugins-good installation
+  homebrew:
+    name: gst-plugins-good
+    state: present
+- name: gst-plugins-bad installation
+  homebrew:
+    name: gst-plugins-bad
+    state: present
+    install_options: with-fdk-aac,with-rtmpdump
+- name: gst-plugins-ugly installation
+  homebrew:
+    name: gst-plugins-ugly
+    state: present
+    install_options: with-x264

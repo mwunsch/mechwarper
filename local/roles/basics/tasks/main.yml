@@ -5,7 +5,13 @@
     creates: /usr/local/Cellar
 - name: Homebrew-Cask tap
   homebrew_tap: name=caskroom/cask state=present
+- name: Mac App Store CLI installation
+  homebrew: name=mas state=present
 - name: Git installation
   homebrew: name=git state=present
 - name: GNU Stow installation
   homebrew: name=stow state=present
+- name: dotfiles download
+  git: repo=git@github.com:mwunsch/dotfiles.git dest=~/dotfiles accept_hostkey=yes
+- name: dotfiles unpack
+  command: /usr/local/bin/stow home chdir=~/dotfiles creates=~/.bash_profile

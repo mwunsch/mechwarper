@@ -2,6 +2,7 @@
 - hosts: localhost ansible_connection=local
   roles:
     - basics
+    - aesthetics
     - brews
     - casks
     - ruby

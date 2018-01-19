@@ -1,0 +1,9 @@
+---
+# SF Mono is a good font. Copy it from Terminal.app and install it system-wide:
+# - https://simonfredsted.com/1438
+- name: SF Mono font availability
+  copy:
+    src: "{{ item }}"
+    dest: ~/Library/Fonts/
+  with_fileglob:
+    - "/Applications/Utilities/Terminal.app/Contents/Resources/Fonts/SFMono*.otf"

@@ -7,3 +7,34 @@
     dest: ~/Library/Fonts/
   with_fileglob:
     - "/Applications/Utilities/Terminal.app/Contents/Resources/Fonts/SFMono*.otf"
+  tags:
+    - font
+# Map Caps Lock to Control as God Intended.
+# First, get the right values for the keyboard identifier out of ioreg:
+- name: Apple Internal Keyboard vendor/product id
+  shell: |
+    set -e
+    tmpfile=$(mktemp)
+    ioreg -c AppleHSSPIDevice -r -d 1 -a > $tmpfile
+    vendor_id=$(/usr/libexec/PlistBuddy -c 'Print :0:idVendor' $tmpfile)
+    product_id=$(/usr/libexec/PlistBuddy -c 'Print :0:idProduct' $tmpfile)
+    echo $vendor_id-$product_id-0
+  register: keyboard_id
+  changed_when: false
+  check_mode: no
+  tags:
+    - keyboard
+# Then, perform the mapping with `defaults` as described in:
+# https://developer.apple.com/library/content/technotes/tn2450/_index.html
+# Preferences are cached; it will take a moment (or a login/logout) to take effect.
+- name: Caps-Lock -> Ctrl mapping
+  osx_defaults:
+    host: currentHost
+    domain: NSGlobalDomain
+    key: "com.apple.keyboard.modifiermapping.{{ keyboard_id.stdout }}"
+    type: array
+    value:
+      - '<dict><key>HIDKeyboardModifierMappingDst</key><integer>30064771300</integer><key>HIDKeyboardModifierMappingSrc</key><integer>30064771129</integer></dict>'
+    state: present
+  tags:
+    - keyboard

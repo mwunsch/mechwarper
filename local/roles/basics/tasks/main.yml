@@ -3,15 +3,34 @@
   shell: /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   args:
     creates: /usr/local/Cellar
+  tags:
+    - homebrew
 - name: Homebrew-Cask tap
   homebrew_tap: name=caskroom/cask state=present
+  tags:
+    - homebrew
+    - caskroom
 - name: Mac App Store CLI installation
   homebrew: name=mas state=present
+  tags:
+    - homebrew
+    - mas
 - name: Git installation
   homebrew: name=git state=present
+  tags:
+    - homebrew
+    - git
 - name: GNU Stow installation
   homebrew: name=stow state=present
+  tags:
+    - homebrew
+    - dotfiles
 - name: dotfiles download
   git: repo=git@github.com:mwunsch/dotfiles.git dest=~/dotfiles accept_hostkey=yes
+  tags:
+    - dotfiles
+    - git
 - name: dotfiles unpack
   command: /usr/local/bin/stow home chdir=~/dotfiles creates=~/.bash_profile
+  tags:
+    - dotfiles

@@ -1,10 +1,10 @@
 ---
 - hosts: localhost ansible_connection=local
   roles:
-    - basics
-    - aesthetics
-    - brews
-    - casks
-    - ruby
-    - emacs
-    - gstreamer
+    - { role: basics, tags: ["basics"] }
+    - { role: aesthetics, tags: ["aesthetics"] }
+    - { role: brews, tags: ["homebrew"] }
+    - { role: casks, tags: ["homebrew","caskroom"] }
+    - { role: ruby, tags: ["ruby"] }
+    - { role: emacs, tags: ["emacs"] }
+    - { role: gstreamer, tags: ["gstreamer", "homebrew"] }

@@ -5,3 +5,5 @@
   homebrew: name=no-more-secrets state=present
 - name: Leiningen (Clojure) installation
   homebrew: name=leiningen state=present
+  tags:
+    - clojure

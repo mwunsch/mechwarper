@@ -1,8 +1,12 @@
 ---
 - name: rbenv (Ruby) installation
   homebrew: name=rbenv state=present
+  tags:
+    - homebrew
 - name: rbenv-default-gems installation
   homebrew: name=rbenv-default-gems state=present
+  tags:
+    - homebrew
 - name: Ruby {{ ruby_version }} installation
   shell: rbenv install {{ ruby_version }} creates=~/.rbenv/versions/{{ ruby_version }}
   notify: set global ruby

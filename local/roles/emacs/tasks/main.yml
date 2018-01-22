@@ -1,11 +1,23 @@
 ---
 - name: tap Mitsuharu Yamamoto Emacs-Mac port
   homebrew_tap: name=railwaycat/emacsmacport state=present
+  tags:
+    - homebrew
+    - caskroom
 - name: Emacs-Mac installation
   homebrew_cask: name=emacs-mac state=present
+  tags:
+    - caskroom
 - name: emacs.d setup
   git: repo=git@github.com:mwunsch/emacs.d.git dest=~/.emacs.d accept_hostkey=yes
+  tags:
+    - git
+    - dotfiles
 - name: GNU Aspell installation
   homebrew: name=aspell state=present
+  tags:
+    - homebrew
 - name: Ghostscript installation
   homebrew: name=ghostscript state=present
+  tags:
+    - homebrew

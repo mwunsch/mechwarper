@@ -1,5 +1,7 @@
 ---
-- hosts: localhost ansible_connection=local
+- name: Bootstrapping macOS
+  hosts: localhost
+  connection: local
   roles:
     - { role: basics, tags: ["basics"] }
     - { role: aesthetics, tags: ["aesthetics"] }

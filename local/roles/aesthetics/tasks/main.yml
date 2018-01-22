@@ -31,7 +31,7 @@
   osx_defaults:
     host: currentHost
     domain: NSGlobalDomain
-    key: "com.apple.keyboard.modifiermapping.{{ keyboard_id.stdout }}"
+    key: com.apple.keyboard.modifiermapping.{{ keyboard_id.stdout }}
     type: array
     value:
       - '<dict><key>HIDKeyboardModifierMappingDst</key><integer>30064771300</integer><key>HIDKeyboardModifierMappingSrc</key><integer>30064771129</integer></dict>'

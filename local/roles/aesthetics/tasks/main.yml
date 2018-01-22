@@ -38,3 +38,23 @@
     state: present
   tags:
     - keyboard
+# Saturn terminal theme is nice:
+# https://github.com/psql/saturn-colors
+- name: Saturn Terminal.app theme installation
+  shell: |
+    set -e
+    terminal_theme=$(defaults read com.apple.Terminal 'Default Window Settings')
+    if [[ $terminal_theme = 'saturn' ]] ; then
+      echo "Default Terminal theme already set: $terminal_theme"
+      exit 0
+    else
+      open {{ item }}
+      defaults write com.apple.Terminal 'Default Window Settings' -string 'saturn'
+      defaults write com.apple.Terminal 'Startup Window Settings' -string 'saturn'
+    fi
+  with_first_found:
+    - 'saturn.terminal'
+  register: result
+  changed_when: result.stdout == ''
+  tags:
+    - terminal

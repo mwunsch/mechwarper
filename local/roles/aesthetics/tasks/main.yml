@@ -22,6 +22,7 @@
   register: keyboard_id
   changed_when: false
   check_mode: no
+  ignore_errors: true
   tags:
     - keyboard
 # Then, perform the mapping with `defaults` as described in:
@@ -41,6 +42,7 @@
     fi
   register: result
   changed_when: result.stdout == ''
+  when: keyboard_id.rc == 0
   tags:
     - keyboard
 # Saturn terminal theme is nice:

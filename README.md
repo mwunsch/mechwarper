@@ -11,7 +11,7 @@ Two different playbooks exist, one for administering a
 single [FreeBSD](https://www.freebsd.org) server hosted
 on [DigitalOcean](https://m.do.co/c/19d9dc066fc3).
 
-    $ ansible-playbook -i hosts site.yml
+    $ ansible-playbook -i hosts freebsd/site.yml
 
 Another for bootstrapping a
 local [macOS High Sierra](https://www.apple.com/macos/high-sierra/)

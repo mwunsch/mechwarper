@@ -28,14 +28,19 @@
 # https://developer.apple.com/library/content/technotes/tn2450/_index.html
 # Preferences are cached; it will take a moment (or a login/logout) to take effect.
 - name: Caps-Lock -> Ctrl mapping
-  osx_defaults:
-    host: currentHost
-    domain: NSGlobalDomain
-    key: com.apple.keyboard.modifiermapping.{{ keyboard_id.stdout }}
-    type: array
-    value:
-      - '<dict><key>HIDKeyboardModifierMappingDst</key><integer>30064771300</integer><key>HIDKeyboardModifierMappingSrc</key><integer>30064771129</integer></dict>'
-    state: present
+  shell: |
+    set -e
+    key='com.apple.keyboard.modifiermapping.{{ keyboard_id.stdout }}'
+    found=$(defaults -currentHost find $key)
+    if [[ $found =~ ^Found ]]; then
+      echo $found
+      exit 0
+    else
+      defaults -currentHost write -globalDomain $key -array \
+      '<dict><key>HIDKeyboardModifierMappingDst</key><integer>30064771300</integer><key>HIDKeyboardModifierMappingSrc</key><integer>30064771129</integer></dict>'
+    fi
+  register: result
+  changed_when: result.stdout == ''
   tags:
     - keyboard
 # Saturn terminal theme is nice:

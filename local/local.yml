@@ -4,6 +4,7 @@
   connection: local
   roles:
     - { role: basics, tags: ["basics"] }
+    - { role: appstore, tags: ["appstore","mas"] }
     - { role: aesthetics, tags: ["aesthetics"] }
     - { role: brews, tags: ["homebrew"] }
     - { role: casks, tags: ["homebrew","caskroom"] }

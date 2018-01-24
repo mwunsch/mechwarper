@@ -1,0 +1,16 @@
+---
+- name: Mac App Store account authorization
+  command: mas account
+  changed_when: false
+- name: 1Password (6.8.6) installation
+  command: mas install 443987910 creates=/Applications/1Password.app
+- name: Things3 (3.3) installation
+  command: mas install 904280696 creates=/Applications/Things3.app
+- name: Divvy (1.5.1) installation
+  command: mas install 413857545 creates=/Applications/Divvy.app
+  register: divvy_result
+- name: Divvy preferences import
+  command: defaults import com.mizage.Divvy {{ item }}
+  with_fileglob:
+    - "divvy.plist"
+  when: divvy_result|changed

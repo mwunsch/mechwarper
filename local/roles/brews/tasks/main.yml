@@ -1,6 +1,8 @@
 ---
 - name: jq installation
   homebrew: name=jq state=present
+- name: tree installation
+  homebrew: name=tree state=present
 - name: SETEC ASTRONOMY
   homebrew: name=no-more-secrets state=present
 - name: Leiningen (Clojure) installation

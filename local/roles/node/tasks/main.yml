@@ -3,3 +3,8 @@
   homebrew: name=node state=present
 - name: Yarn package management installation
   homebrew: name=yarn state=present
+- name: node-gyp global installation
+  npm:
+    name: node-gyp
+    global: yes
+    state: present

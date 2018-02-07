@@ -1,0 +1,5 @@
+---
+- name: Node.js installation
+  homebrew: name=node state=present
+- name: Yarn package management installation
+  homebrew: name=yarn state=present

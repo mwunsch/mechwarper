@@ -9,5 +9,6 @@
     - { role: brews, tags: ["homebrew"] }
     - { role: casks, tags: ["homebrew","caskroom"] }
     - { role: ruby, tags: ["ruby"] }
+    - { role: node, tags: ["node","javascript"] }
     - { role: emacs, tags: ["emacs"] }
     - { role: gstreamer, tags: ["gstreamer", "homebrew"] }

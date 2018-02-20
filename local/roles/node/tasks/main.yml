@@ -8,3 +8,5 @@
     name: node-gyp
     global: yes
     state: present
+  tags:
+    - npm

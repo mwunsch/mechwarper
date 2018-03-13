@@ -7,6 +7,8 @@
   tags:
     - virtualization
   homebrew_cask: name=vagrant state=present
+- name: LICEcap installation
+  homebrew_cask: name=licecap state=present
 - name: MacTeX installation
   homebrew_cask: name=mactex state=present
 - name: Caffeine installation

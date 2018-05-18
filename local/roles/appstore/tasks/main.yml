@@ -8,6 +8,8 @@
   command: mas install 904280696 creates=/Applications/Things3.app
 - name: Slack (3.0.5) installation
   command: mas install 803453959 creates=/Applications/Slack.app
+- name: Soulver (2.6.7) installation
+  command: mas install 413965349 creates=/Applications/Soulver.app
 - name: Divvy (1.5.1) installation
   command: mas install 413857545 creates=/Applications/Divvy.app
   register: divvy_result

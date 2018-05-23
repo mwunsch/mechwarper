@@ -9,3 +9,5 @@
   homebrew: name=leiningen state=present
   tags:
     - clojure
+- name: csvkit installation
+  homebrew: name=csvkit state=present

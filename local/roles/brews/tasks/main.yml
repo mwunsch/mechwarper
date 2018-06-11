@@ -11,3 +11,5 @@
     - clojure
 - name: csvkit installation
   homebrew: name=csvkit state=present
+- name: youtube-dl installation
+  homebrew: name=youtube-dl state=present

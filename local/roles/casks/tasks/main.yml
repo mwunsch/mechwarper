@@ -11,6 +11,9 @@
   homebrew_cask: name=licecap state=present
 - name: MacTeX installation
   homebrew_cask: name=mactex state=present
+# alternatively:
+# - name: BasicTeX installation
+#   homebrew_Cask: name=basictex state=present
 - name: Caffeine installation
   homebrew_cask: name=caffeine state=present
 - name: Racket installation

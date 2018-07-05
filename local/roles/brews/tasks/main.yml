@@ -13,3 +13,5 @@
   homebrew: name=csvkit state=present
 - name: youtube-dl installation
   homebrew: name=youtube-dl state=present
+- name: pandoc installation
+  homebrew: name=pandoc state=present

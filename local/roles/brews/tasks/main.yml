@@ -15,3 +15,5 @@
   homebrew: name=youtube-dl state=present
 - name: pandoc installation
   homebrew: name=pandoc state=present
+- name: ffmpeg installation
+  homebrew: name=ffmpeg state=present

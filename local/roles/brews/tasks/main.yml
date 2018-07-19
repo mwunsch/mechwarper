@@ -19,3 +19,5 @@
   homebrew: name=pandoc state=present
 - name: ffmpeg installation
   homebrew: name=ffmpeg state=present
+- name: figlet installation
+  homebrew: name=figlet state=present

@@ -21,3 +21,5 @@
   homebrew: name=ffmpeg state=present
 - name: figlet installation
   homebrew: name=figlet state=present
+- name: imagemagick installation
+  homebrew: name=imagemagick state=present

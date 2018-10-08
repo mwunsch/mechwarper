@@ -1,0 +1,7 @@
+---
+- name: make gopath directory
+  file:
+    path: ~/Go
+    state: directory
+  tags:
+    - golang

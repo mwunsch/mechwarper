@@ -23,3 +23,8 @@
   homebrew: name=figlet state=present
 - name: imagemagick installation
   homebrew: name=imagemagick state=present
+- name: golang installation
+  homebrew: name=go state=present
+  notify: make gopath directory
+  tags:
+    - golang

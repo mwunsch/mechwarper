@@ -28,3 +28,8 @@
   notify: make gopath directory
   tags:
     - golang
+- name: elixir installation
+  homebrew: name=elixir state=present
+  tags:
+    - elixir
+    - erlang

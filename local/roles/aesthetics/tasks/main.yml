@@ -51,11 +51,11 @@
   shell: |
     set -e
     terminal_theme=$(defaults read com.apple.Terminal 'Default Window Settings')
-    if [[ $terminal_theme = 'saturn' ]] ; then
+    if [[ $terminal_theme = 'saturn' ]]; then
       echo "Default Terminal theme already set: $terminal_theme"
       exit 0
     else
-      open {{ item }}
+      open '{{ item }}'
       defaults write com.apple.Terminal 'Default Window Settings' -string 'saturn'
       defaults write com.apple.Terminal 'Startup Window Settings' -string 'saturn'
     fi

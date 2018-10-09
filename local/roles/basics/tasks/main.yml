@@ -6,7 +6,7 @@
   tags:
     - homebrew
 - name: Homebrew-Cask tap
-  homebrew_tap: name=caskroom/cask state=present
+  homebrew_tap: name=homebrew/cask state=present
   tags:
     - homebrew
     - caskroom

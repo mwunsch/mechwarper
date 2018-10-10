@@ -1,0 +1,3 @@
+---
+- name: install plex
+  pkgng: name=plexmediaserver state=present

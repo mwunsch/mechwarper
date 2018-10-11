@@ -37,3 +37,9 @@
         name: ~/.rbenv/version
         line: '2.3.3'
         create: yes
+
+- hosts: freebsd
+  remote_user: mw
+  name: Setting up Plex
+  roles:
+    - { role: plex, tags: ["plex"] }

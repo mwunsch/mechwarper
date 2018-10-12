@@ -29,13 +29,13 @@
       git: repo=git@github.com:mwunsch/emacs.d.git dest=~/.emacs.d accept_hostkey=yes
     - name: install ruby-build
       git: repo=https://github.com/rbenv/ruby-build.git dest=~/.rbenv/plugins/ruby-build
-    - name: install ruby 2.3.3
+    - name: install ruby 2.5.1
       # make a cup of coffee
-      shell: rbenv install 2.3.3 creates=~/.rbenv/versions/2.3.3
-    - name: set ruby 2.3.3 as global ruby
+      shell: rbenv install 2.5.1 creates=~/.rbenv/versions/2.5.1
+    - name: set ruby 2.5.1 as global ruby
       lineinfile:
         name: ~/.rbenv/version
-        line: '2.3.3'
+        line: '2.5.1'
         create: yes
 
 - hosts: freebsd

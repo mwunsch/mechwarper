@@ -14,8 +14,6 @@
 # alternatively:
 # - name: BasicTeX installation
 #   homebrew_Cask: name=basictex state=present
-- name: Caffeine installation
-  homebrew_cask: name=caffeine state=present
 - name: Racket installation
   homebrew_cask: name=racket state=present
   tags:

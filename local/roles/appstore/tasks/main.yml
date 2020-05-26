@@ -2,17 +2,25 @@
 - name: Mac App Store account authorization
   command: mas account
   changed_when: false
-- name: 1Password (6.8.6) installation
-  command: mas install 443987910 creates=/Applications/1Password.app
-- name: Things3 (3.3) installation
+- name: 1Password (7.5) installation
+  command: mas install 1333542190 creates=/Applications/1Password.app
+- name: Things3 (3.12.3) installation
   command: mas install 904280696 creates=/Applications/Things3.app
-- name: Slack (3.0.5) installation
+- name: Slack (4.5.0) installation
   command: mas install 803453959 creates=/Applications/Slack.app
-- name: Soulver (2.6.7) installation
-  command: mas install 413965349 creates=/Applications/Soulver.app
-- name: Divvy (1.5.1) installation
+- name: Soulver (3.4.2) installation
+  command: mas install 1508732804 creates=/Applications/Soulver\ 3.app
+- name: Divvy (1.5.2) installation
   command: mas install 413857545 creates=/Applications/Divvy.app
   register: divvy_result
+- name: Instapaper (1.1) installation
+  command: mas install 1481302432 creates=/Applications/Instapaper.app
+- name: Keynote (10.0) installation
+  command: mas install 409183694 creates=/Applications/Keynote.app
+- name: Xcode (11.5) installation
+  command: mas install 497799835 creates=/Applications/Xcode.app
+- name: Amphetamine (5.0.2) installation
+  command: mas install 937984704 creates=/Applications/Amphetamine.app
 - name: Divvy preferences import
   command: defaults import com.mizage.Divvy {{ item }}
   with_fileglob:

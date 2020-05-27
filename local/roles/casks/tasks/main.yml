@@ -3,6 +3,10 @@
   homebrew_cask: name=virtualbox state=present
   tags:
     - virtualization
+- name: Docker installation
+  homebrew_cask: name=docker state=present
+  tags:
+    - docker
 - name: Vagrant installation
   tags:
     - virtualization

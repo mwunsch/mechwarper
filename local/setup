@@ -1,18 +1,15 @@
 #!/bin/bash
 
 # This script is going to set up a mac just the way I like it.
-# I use bash.
+PATH="$PATH:`python3 -m site --user-base`/bin"
 
 if ! xcode-select -p > /dev/null 2>&1; then
   xcode-select --install
 fi
 
-if [ ! `command -v pip` ]; then
-  sudo easy_install pip
-fi
-
 if [ ! `command -v ansible-playbook` ]; then
-  sudo pip install ansible
+  python3 -m pip install --upgrade pip
+  python3 -m pip install ansible
 fi
 
 # ansible-playbook local/local.yml

@@ -40,6 +40,6 @@
     - dotfiles
     - git
 - name: dotfiles unpack
-  ansible.builtin.command: /usr/local/bin/stow home chdir=~/dotfiles creates=~/.bash_profile
+  ansible.builtin.command: /opt/homebrew/bin/stow home chdir=~/dotfiles creates=~/.bash_profile
   tags:
     - dotfiles

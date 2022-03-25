@@ -1,4 +1,7 @@
 ---
+- name: Computer Name
+  ansible.builtin.command: networksetup -getcomputername
+  register: computer_name
 - name: SSH Keypair
   community.crypto.openssh_keypair:
     path: ~/.ssh/id_ed25519
@@ -7,7 +10,7 @@
   register: keypair
 - name: Register SSH key with GitHub
   community.general.github_key:
-    name: '{{ inventory_hostname }}'
+    name: '{{ computer_name.stdout }}'
     pubkey: '{{ keypair.public_key }}'
     token: '{{ github_access_token }}'
 - name: Homebrew installation

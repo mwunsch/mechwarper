@@ -1,4 +1,15 @@
 ---
+- name: SSH Keypair
+  community.crypto.openssh_keypair:
+    path: ~/.ssh/id_ed25519
+    type: ed25519
+    comment: mark@markwunsch.com
+  register: keypair
+- name: Register SSH key with GitHub
+  community.general.github_key:
+    name: '{{ inventory_hostname }}'
+    pubkey: '{{ keypair.public_key }}'
+    token: '{{ github_access_token }}'
 - name: Homebrew installation
   ansible.builtin.shell: NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
   args:
